@@ -10,7 +10,7 @@ import LuOrden from '@/assets/icons/LuOrden'
 import LuUser from '@/assets/icons/LuUser'
 import PedidosRealizados from '@/assets/icons/PedidosRealizados'
 import UserAdmin from '@/assets/icons/UserAdmin'
-import logo_nav from '@/assets/images/logos/Recurso 14_023535.png'
+import logo_nav from '@/assets/images/logos/logo.png'
 import { navBarAnimate, useToggleMenuAnimation } from '@/gsap/Gsap'
 import { logout } from '@/utils/logout'
 import Image from 'next/image'
@@ -71,7 +71,7 @@ const Navbar = () => {
             src={logo_nav}
             width={180}
             height={180}
-            alt='panchos222_logo'
+            alt='hierros los pibes logo'
           />
         </Link>
         <div className={styles.items_container}>
