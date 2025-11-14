@@ -1,0 +1,102 @@
+.form {
+  width: 100%;
+  max-width: 400px;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1.5px solid var(--marron);
+  box-shadow: var(--box-shadow);
+}
+
+.form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(43, 43, 43);
+  font-weight: 500;
+  font-size: 13px;
+  width: 100%;
+}
+
+.form input {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 14px;
+}
+
+.form input[type='date'],
+.form select {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 14px;
+}
+
+.form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form textarea {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 14px;
+  min-height: 100px;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border: 1.5px dashed var(--marron);
+  box-shadow: none;
+}
+
+.form button {
+  width: 100%;
+  background: var(--marron);
+  color: white;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 15px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form small {
+  color: rgb(255, 91, 91);
+}
+
+@media (max-width: 1000px) {
+  .form {
+    max-width: 100%;
+  }
+}

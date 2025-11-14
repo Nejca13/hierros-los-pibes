@@ -1,0 +1,66 @@
+.wrapper {
+  width: 100%;
+  min-height: 109px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: rgb(43, 43, 43);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.wrapper input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 12px;
+}
+
+.input.match {
+  border: 1.5px solid #4caf50;
+  color: #2e7d32;
+}
+
+.input.less,
+.input.more {
+  border: 1.5px solid #f44336;
+  color: #b71c1c;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  padding: 0px 13px;
+}
+
+.message {
+  margin-top: -5px;
+}
+
+.message.match {
+  color: #4caf50;
+}
+
+.message.less,
+.message.more {
+  color: #f44336;
+}
+
+.expected {
+  font-size: 0.8rem;
+  color: #666;
+}

@@ -1,0 +1,64 @@
+.form_date {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.form_date label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  font-size: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.form_date label i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  z-index: 0;
+}
+
+.form_date input {
+  font-size: 12px;
+  font-family: inherit;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 1.5px solid var(--marron);
+  color: black;
+  max-height: 41px;
+}
+
+.form_date select {
+  font-size: 12px;
+  font-family: inherit;
+  padding: 5px 10px;
+  padding-right: 25px;
+  border-radius: 30px;
+  border: 1.5px solid var(--marron);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  z-index: 1;
+  color: black;
+}
+
+.form_date button {
+  font-size: 13px;
+  font-family: inherit;
+  padding: 5px 10px;
+  border-radius: 30px;
+  background: var(--marron);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}

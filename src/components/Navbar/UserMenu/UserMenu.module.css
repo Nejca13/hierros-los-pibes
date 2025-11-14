@@ -1,0 +1,52 @@
+.user {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user .menu_button_user button {
+  display: flex;
+  align-items: center;
+}
+
+.user_list {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 200px;
+  background: var(--background);
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.089);
+  display: none;
+  flex-direction: column;
+}
+
+.user_list.show {
+  display: flex;
+}
+
+.user_list li {
+  width: 100%;
+  display: flex;
+}
+
+.user_list li a,
+.user_list li button {
+  font-size: 13px;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  font-weight: 500;
+  padding: 15px 15px;
+  color: black;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  font-family: inherit;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user_list li button {
+  border-bottom: none;
+}

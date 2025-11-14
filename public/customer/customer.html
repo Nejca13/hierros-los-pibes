@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedidos para Retirar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./customer.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="title">
+          <h3>Cliente</h3>
+          <span>Visualización de pedidos para retiro</span>
+        </div>
+        <div class="date">
+          <span id="fecha"></span>
+          <strong id="hora"></strong>
+        </div>
+      </div>
+      <div id="orders" class="container_orders">
+        <div class="loading">Cargando órdenes para retirar...</div>
+      </div>
+    </div>
+
+    <audio id="notifSound" src="../notification.mp3" preload="auto"></audio>
+
+    <script>
+      function obtenerFechaYHora() {
+        const fechaObj = new Date()
+        const opcionesFecha = {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        }
+        const opcionesHora = {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        }
+        return {
+          fecha: fechaObj.toLocaleDateString('es-ES', opcionesFecha),
+          hora: fechaObj.toLocaleTimeString('es-ES', opcionesHora),
+        }
+      }
+
+      function renderizarFechaYHora() {
+        const { fecha, hora } = obtenerFechaYHora()
+        document.getElementById('fecha').textContent = fecha
+        document.getElementById('hora').textContent = hora
+      }
+
+      renderizarFechaYHora()
+      setInterval(renderizarFechaYHora, 10000)
+
+      let lastOrdersJSON = ''
+
+      async function cargarPedidos() {
+        try {
+          const res = await fetch(
+            '/api/orders?page=1&limit=4&sort_type=desc&kitchen_status=finished&kitchen_status=finished'
+          )
+          const json = await res.json()
+          const newOrders = json.orders || []
+          newOrders.sort((a, b) => {
+            return new Date(b.finished_at) - new Date(a.finished_at)
+          })
+          const newOrdersJSON = JSON.stringify(newOrders)
+
+          if (lastOrdersJSON && newOrdersJSON !== lastOrdersJSON) {
+            document.getElementById('notifSound').play()
+          }
+          lastOrdersJSON = newOrdersJSON
+
+          const container = document.getElementById('orders')
+          if (newOrders.length === 0) {
+            container.innerHTML =
+              '<div class="loading">No hay pedidos para retirar ✅</div>'
+            return
+          }
+
+          const { hora: horaActual } = obtenerFechaYHora()
+
+          function formatTime(dateString) {
+            // Asegurarse de que sea un ISO con Z (UTC). Si tu finished_at viene sin Z, concatenalo:
+            let d = new Date(
+              dateString.endsWith('Z') ? dateString : dateString + 'Z'
+            )
+
+            return d.toLocaleTimeString('es-AR', {
+              hour: '2-digit',
+              minute: '2-digit',
+              timeZone: 'America/Argentina/Buenos_Aires',
+              hour12: false,
+            })
+          }
+
+          // Tomar solo los ultimos 2 digitos de pickup_number, si es mayor a 2 digitos
+          function formatPickupNumber(pickupNumber) {
+            const str = pickupNumber.toString()
+            return str.length > 2 ? str.slice(-2) : str
+          }
+
+          container.innerHTML = newOrders
+            .map((order) => {
+              const formattedNumber = formatPickupNumber(order.pickup_number)
+              return `
+          <div class="card">
+            <div class="number_and_name">
+              <span>#${formattedNumber}</span>
+              <div class="title_name">
+                <p>Cliente</p>
+                <h3>${order.guest_name.toUpperCase()}</h3>
+              </div>
+            </div>
+            <div class="bagde_and_date">
+              <span class="order_complete">
+                <!-- SVG de check -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#186337"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+                 Listo para retirar
+              </span>
+              <small>${formatTime(order.finished_at)}</small>
+            </div>
+          </div>
+        `
+            })
+            .join('')
+        } catch (e) {
+          document.getElementById('orders').innerHTML =
+            '<div class="loading">Error cargando pedidos</div>'
+        }
+      }
+
+      cargarPedidos()
+      setInterval(cargarPedidos, 10000)
+    </script>
+  </body>
+</html>

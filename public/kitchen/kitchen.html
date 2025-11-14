@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cocina - Pedidos</title>
+    <link rel="stylesheet" href="./kitchen.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="title">
+          <h3>Cocina</h3>
+          <span>Pedidos activos: visualización para cocina</span>
+        </div>
+        <div class="date">
+          <span id="fecha">--/--/----</span> <strong id="hora">--:--:--</strong>
+        </div>
+      </div>
+
+      <!-- Contenedor de órdenes -->
+      <div class="">
+        <div class="loading" id="loading" style="display: none">
+          Cargando pedidos...
+        </div>
+        <div id="ordersContainer" class="container_orders"></div>
+      </div>
+    </div>
+
+    <audio id="notiSound" src="../notification.mp3" preload="auto"></audio>
+
+    <script>
+      const API_URL =
+        '/api/orders?page=1&limit=2000&sort_type=asc&kitchen_status=sent'
+      let previousData = null
+      const POLL_INTERVAL = 5000
+
+      function actualizarFechaHora() {
+        const now = new Date()
+        document.getElementById('fecha').textContent = now.toLocaleDateString(
+          'es-AR',
+          { day: '2-digit', month: '2-digit', year: 'numeric' }
+        )
+        document.getElementById('hora').textContent = now.toLocaleTimeString(
+          'es-AR',
+          { hour: '2-digit', minute: '2-digit', second: '2-digit' }
+        )
+      }
+
+      function crearCard(order) {
+        const card = document.createElement('div')
+        card.className = 'card'
+
+        // Header
+        const cardHeader = document.createElement('div')
+        cardHeader.className = 'card_header'
+
+        const titleHeader = document.createElement('div')
+        titleHeader.className = 'title_header'
+        titleHeader.innerHTML = `
+          <h3>#${order.pickup_number} ${order.guest_name.toUpperCase()}</h3>
+          <span>${order.kitchen_status === 'sent' ? 'Pendiente' : ''}</span>
+        `
+
+        const orderHeader = document.createElement('div')
+        orderHeader.className = 'order_header'
+        const createdDate = new Date(order.created_at)
+        const fechaCreada = createdDate.toLocaleDateString('es-AR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        })
+        orderHeader.innerHTML = `
+          <span>${order.table}</span>
+          <i> • </i>
+          <span>${fechaCreada}</span>
+        `
+
+        cardHeader.appendChild(titleHeader)
+        cardHeader.appendChild(orderHeader)
+
+        // Body
+        const cardBody = document.createElement('div')
+        cardBody.className = 'card_body'
+
+        const productosTitulo = document.createElement('h3')
+        productosTitulo.textContent = 'Productos:'
+        cardBody.appendChild(productosTitulo)
+
+        const ulProductos = document.createElement('ul')
+        ulProductos.className = 'products_body'
+        order.products_details.forEach((product) => {
+          const li = document.createElement('li')
+          const img = document.createElement('img')
+          img.src = product.image || '../default-product.png'
+          img.alt = product.name
+          img.width = 46
+          img.height = 46
+
+          const info = document.createElement('div')
+          info.className = 'info'
+          const nombreYPrecio = document.createElement('div')
+          nombreYPrecio.innerHTML = `
+            <h4>${product.name}</h4>
+            <span>$${product.unit_price.toLocaleString('es-AR', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}</span>
+          `
+          const cantidad = document.createElement('p')
+          cantidad.className = 'quantity'
+          cantidad.innerHTML = `Cantidad: <span>x${product.quantity}</span>`
+
+          info.appendChild(nombreYPrecio)
+          info.appendChild(cantidad)
+          li.appendChild(img)
+          li.appendChild(info)
+          ulProductos.appendChild(li)
+        })
+        cardBody.appendChild(ulProductos)
+
+        if (order.note) {
+          const notaDiv = document.createElement('div')
+          notaDiv.className = 'note_body'
+          notaDiv.innerHTML = `
+            <h4>Notas:</h4>
+            <p>${order.note}</p>
+          `
+          cardBody.appendChild(notaDiv)
+        }
+
+        const buttonDiv = document.createElement('div')
+        buttonDiv.className = 'button_body'
+        const btn = document.createElement('button')
+        btn.textContent = 'Marcar como Finalizado'
+        btn.addEventListener('click', () => finishAndDisplay(order._id))
+        buttonDiv.appendChild(btn)
+        cardBody.appendChild(buttonDiv)
+
+        card.appendChild(cardHeader)
+        card.appendChild(cardBody)
+        return card
+      }
+
+      async function finishAndDisplay(orderId) {
+        const result = await Swal.fire({
+          title: '¿Estás seguro que deseas marcar el pedido como finalizado?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, marcar como finalizado',
+          cancelButtonText: 'Cancelar',
+        })
+        if (!result.isConfirmed) return
+
+        try {
+          const res = await fetch(
+            `/api/orders/finish-and-display/${orderId}/`,
+            { method: 'POST' }
+          )
+          const data = await res.json()
+          if (res.ok) {
+            await Swal.fire({
+              icon: 'success',
+              title: 'Pedido finalizado',
+              text: 'El pedido fue marcado como finalizado correctamente.',
+              confirmButtonColor: '#8B5E3C',
+            })
+            fetchAndRender()
+          } else {
+            throw new Error(data?.error || 'Error desconocido')
+          }
+        } catch (e) {
+          console.error('Error al finalizar:', e)
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Hubo un problema al marcar como finalizado.',
+            confirmButtonColor: '#8B5E3C',
+          })
+        }
+      }
+
+      const ordersContainer = document.getElementById('ordersContainer')
+      const loadingEl = document.getElementById('loading')
+      const renderedOrders = new Map()
+
+      function areOrdersEqual(a, b) {
+        return a._id === b._id && a.updated_at === b.updated_at
+      }
+
+      async function fetchAndRender() {
+        let json
+        try {
+          const res = await fetch(API_URL)
+          json = await res.json()
+        } catch (e) {
+          console.error('Error al obtener órdenes:', e)
+          return
+        }
+
+        const orders = (json?.orders || []).slice(0, 25)
+        const incomingIds = new Set(orders.map((o) => o._id))
+
+        // Detectar si no cambió nada (mismo largo, mismo _id y mismo updated_at en cada posición)
+        let sinCambios = false
+        if (
+          previousData &&
+          previousData.length === orders.length &&
+          previousData.every((oldItem, idx) =>
+            areOrdersEqual(oldItem, orders[idx])
+          )
+        ) {
+          sinCambios = true
+        }
+
+        if (sinCambios) {
+          // No tocamos nada: ni spinner, ni DOM
+          return
+        }
+
+        // ===================
+        // Sólo entramos acá si cambió algo
+        // ===================
+        loadingEl.style.display = 'block'
+
+        // Agregar o reemplazar cards nuevas o modificadas
+        for (const order of orders) {
+          const old = previousData
+            ? previousData.find((o) => o._id === order._id)
+            : null
+          const hasChanged = !old || !areOrdersEqual(old, order)
+
+          if (!renderedOrders.has(order._id) || hasChanged) {
+            const existingEl = renderedOrders.get(order._id)
+            const newCard = crearCard(order)
+
+            if (existingEl) {
+              ordersContainer.replaceChild(newCard, existingEl)
+            } else {
+              ordersContainer.appendChild(newCard)
+              if (previousData) {
+                document.getElementById('notiSound').play()
+                if (
+                  'Notification' in window &&
+                  Notification.permission === 'granted'
+                ) {
+                  new Notification('☕ Nuevo pedido en cocina')
+                }
+              }
+            }
+            renderedOrders.set(order._id, newCard)
+          }
+        }
+
+        // Eliminar los que ya no existan
+        for (const [id, el] of renderedOrders.entries()) {
+          if (!incomingIds.has(id)) {
+            el.remove()
+            renderedOrders.delete(id)
+          }
+        }
+
+        previousData = orders.slice()
+        loadingEl.style.display = 'none'
+      }
+
+      function init() {
+        if ('Notification' in window && Notification.permission !== 'granted') {
+          Notification.requestPermission()
+        }
+        actualizarFechaHora()
+        fetchAndRender()
+        setInterval(actualizarFechaHora, 1000)
+        setInterval(fetchAndRender, POLL_INTERVAL)
+      }
+
+      document.addEventListener('DOMContentLoaded', init)
+    </script>
+  </body>
+</html>

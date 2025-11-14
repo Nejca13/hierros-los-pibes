@@ -1,0 +1,269 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-bottom: 50px;
+}
+
+.info_text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_text h2 {
+  font-family: var(--font-agbalumo);
+  color: var(--black);
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.content {
+  width: 90%;
+  max-width: 1450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.form_and_data {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.form_and_data form,
+.info_contact {
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: 50px;
+}
+
+.title h3 {
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  font-weight: 500;
+}
+
+.title p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  line-height: 30px;
+  color: rgb(0, 0, 0);
+  opacity: 50%;
+}
+
+.form_group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form_and_data form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  gap: 5px;
+}
+
+.form_group label input {
+  border: none;
+  border-bottom: 1.5px dashed var(--marron);
+  width: 100%;
+  background: transparent;
+  padding: 5px 0px 10px 0px;
+  outline: none;
+  font-family: inherit;
+  border-radius: 0px;
+  font-weight: 300;
+}
+
+.form_group label input::placeholder,
+.form_and_data form label textarea::placeholder {
+  color: rgb(68, 68, 68);
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.form_and_data form label textarea {
+  border: none;
+  border-bottom: 1.5px dashed var(--marron);
+  width: 100%;
+  min-height: 100px;
+  background: transparent;
+  padding: 10px 0px;
+  outline: none;
+  font-family: inherit;
+  border-radius: 0px;
+  font-weight: 300;
+}
+
+.container_button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.container_button button {
+  background: var(--black);
+  box-shadow: var(--box-shadow);
+  border-radius: 30px;
+  color: white;
+  padding: 15px 20px;
+  min-width: 150px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  border-left: 1px solid var(--marron);
+}
+
+.info_contact {
+  gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.card h4 {
+  font-size: 20px;
+  letter-spacing: -0.2px;
+  font-weight: 500;
+}
+
+.card p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  line-height: 30px;
+  color: rgb(0, 0, 0);
+  opacity: 50%;
+}
+
+.card .icon_text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.card .icon_text i,
+.card .icon_mobile {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 50%;
+  background-color: var(--marron);
+}
+
+.card .icon_mobile {
+  display: none;
+}
+
+.card .icon_text span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--marron);
+  border-bottom: 1px solid var(--marron);
+}
+
+@media (max-width: 768px) {
+  .form_and_data {
+    flex-direction: column;
+    row-gap: 50px;
+  }
+
+  .title h3 {
+    font-weight: 500;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .form_and_data form,
+  .info_contact {
+    max-width: 100%;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .container_button button {
+    width: 100%;
+  }
+
+  .info_contact {
+    gap: 50px;
+  }
+
+  .card {
+    align-items: center;
+  }
+
+  .card .icon_text i {
+    display: none;
+  }
+
+  .card .icon_mobile {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .card h4,
+  .card p {
+    text-align: center !important;
+  }
+
+  .card h4 {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 500px) {
+  .info_text h2 {
+    font-size: 40px;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+  .form_group {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,220 @@
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 100dvh;
+  background-image: url('./../../assets/images/reservas.webp');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.content {
+  padding: 170px 20px 50px 20px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.no_reservations {
+  width: 100%;
+  min-height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content h2 {
+  font-size: 40px;
+  color: var(--background);
+}
+
+.content .control_buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  background: #eaeaea;
+  gap: 4px;
+  border-radius: 6px;
+}
+
+.content .control_buttons button {
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 12px;
+  background: transparent;
+  color: #71717a;
+  font-family: inherit;
+  font-weight: 500;
+  width: 50%;
+  border-radius: 6px;
+}
+
+.content .control_buttons button.active {
+  background: var(--background);
+  color: black;
+}
+
+.content .container_reservations {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  background: #eaeaea;
+  border-radius: 6px;
+  gap: 6px;
+}
+
+.container_reservations .reservation {
+  width: 100%;
+  background: var(--background);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container_reservations .info_reservation {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.info_reservation img {
+  min-width: 250px;
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+}
+
+.info_reservation .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 300px;
+  row-gap: 10px;
+}
+
+.info_reservation .info strong {
+  color: black;
+  white-space: nowrap;
+}
+
+.info_reservation .info p {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.info_reservation .info_reservation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 200px;
+  margin-left: auto;
+}
+
+.info_reservation .info_reservation .button_link,
+.info_reservation .info_reservation .button_cancel,
+.info_reservation .info_reservation .detail_button {
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-family: inherit;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.info_reservation .info_reservation .button_link {
+  background: var(--green);
+  color: var(--background);
+}
+
+.info_reservation .info_reservation .button_cancel {
+  background: #ef4444;
+  color: white;
+}
+
+.info_reservation .info_reservation .detail_button {
+  background: var(--background);
+  border: 1px solid rgb(209, 209, 209);
+  color: black;
+}
+
+@media (max-width: 800px) {
+  .container_reservations .info_reservation {
+    flex-direction: column;
+  }
+
+  .content h2 {
+    display: none;
+  }
+
+  .info_reservation img {
+    min-width: 100%;
+    width: 100%;
+    height: 200px;
+  }
+
+  .info_reservation .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    row-gap: 0px;
+    gap: 20px;
+  }
+
+  .info_reservation .info_reservation {
+    margin-left: 0;
+    flex-direction: row;
+  }
+
+  .info_reservation .info_reservation {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .content {
+    padding: 170px 20px 50px 20px;
+  }
+  .container_reservations .reservation {
+    padding: 20px;
+  }
+
+  .info_reservation .info_reservation {
+    justify-content: center;
+  }
+
+  .info_reservation img {
+    min-width: 100%;
+    width: 100%;
+    height: 100px;
+  }
+}

@@ -1,0 +1,107 @@
+.toolBar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 80px;
+  padding: 15px 0px;
+  gap: 10px;
+  background-color: #fff2d700;
+  z-index: 9;
+}
+
+.toolBar label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.toolBar label input[type='search'] {
+  padding: 10px 10px 10px 35px;
+  width: 180px;
+  border: 1.5px solid white;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 13px;
+  background: white;
+  box-shadow: var(--box-shadow);
+}
+
+.toolBar label input::placeholder {
+  color: var(--black);
+}
+
+.toolBar label input:focus {
+  outline: none;
+  border: 1.5px solid var(--black);
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.select {
+  position: relative;
+}
+
+.button_select_categoria {
+  height: 42.5px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--black);
+  color: white;
+  padding: 0px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+.select .categorias {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  display: none;
+  min-width: 200px;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1.5px solid var(--marron);
+  box-shadow: var(--box-shadow);
+}
+
+.select .categorias button {
+  width: 100%;
+  text-align: start;
+  font-family: inherit;
+  color: var(--black);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+.select .categorias a i {
+  display: flex;
+  align-items: center;
+}
+
+.empty {
+  font-size: 14px;
+  line-height: 24px;
+}

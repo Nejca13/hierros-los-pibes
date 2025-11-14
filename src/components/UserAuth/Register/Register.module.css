@@ -1,0 +1,256 @@
+.container {
+  width: 100%;
+  min-height: 100dvh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.container .back_button {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 50px;
+}
+
+.container .back_button a {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--background);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_form {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  border: 1.5px solid var(--marron);
+}
+
+.emptyImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.emptyImage img {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.icon_camera {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+  left: 0px;
+}
+
+.icon_camera i {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.container_form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container_form form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(43, 43, 43);
+  font-weight: 400;
+  font-size: 13px;
+  width: 100%;
+}
+
+.container_form form .button {
+  width: 100%;
+  background: var(--marron);
+  color: white;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 15px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container_form form input {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 14px;
+}
+
+.input_container {
+  position: relative;
+}
+
+.togglePassword {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.container_form .link {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-family: inherit;
+  color: rgb(43, 43, 43);
+}
+
+.endStep {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.endStep img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.endStep .text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.text h3 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.text .info {
+  font-size: 15px;
+  background: rgb(254, 247, 242);
+  border: 1.5px dashed var(--marron);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.text .info span {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.text .info p {
+  font-size: 13px;
+  line-height: 25px;
+}
+
+.text a {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.container_form small {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
+
+.button_login {
+  width: 100%;
+  background: var(--marron);
+  color: white;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 15px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 100px 0px 50px 0px;
+  }
+  .container .back_button {
+    padding: 20px 10px;
+  }
+
+  .container .back_button a {
+    font-size: 16px;
+    gap: 5px;
+  }
+}

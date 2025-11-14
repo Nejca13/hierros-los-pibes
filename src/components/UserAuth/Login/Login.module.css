@@ -1,0 +1,161 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  position: relative;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_form {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  border: 1.5px solid var(--marron);
+}
+
+.container_form img {
+  width: 130px;
+  height: auto;
+  border-radius: 50%;
+  margin-top: -90px;
+  box-shadow: var(--box-shadow);
+}
+
+.container_form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.container_form form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(43, 43, 43);
+  font-weight: 400;
+  font-size: 13px;
+  width: 100%;
+}
+
+.container_form form input {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 14px;
+}
+
+.container_form form .button {
+  width: 100%;
+  background: var(--marron);
+  color: white;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 15px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input_container {
+  position: relative;
+}
+
+.togglePassword {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.recovery_button,
+.container_form .link {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-family: inherit;
+  color: rgb(43, 43, 43);
+}
+
+.info {
+  font-size: 15px;
+  background: rgb(254, 247, 242);
+  border: 1.5px dashed var(--marron);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  border-radius: 6px;
+}
+
+.info span {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.info p {
+  font-size: 13px;
+  line-height: 25px;
+}
+
+.container_form small {
+  text-align: center;
+  line-height: 23px;
+  color: red;
+}
+
+.backLogin {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-family: inherit;
+  color: rgb(43, 43, 43);
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 100px 0px 50px 0px;
+  }
+  .container .back_button {
+    padding: 20px 10px;
+  }
+
+  .container .back_button a {
+    font-size: 16px;
+    gap: 5px;
+  }
+}

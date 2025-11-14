@@ -1,0 +1,170 @@
+.container {
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  scale: 1.2;
+}
+
+.ticket {
+  width: 100%;
+  max-width: 80mm;
+  min-height: 380px;
+  background: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace !important;
+}
+
+.ticket h1 {
+  width: 100%;
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.ticket .info_order {
+  width: 100%;
+  margin: 15px 0px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px dashed black;
+  padding-bottom: 10px;
+}
+
+.ticket .info_order span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticket .info_order span strong {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ticket .info_order span p {
+  font-size: 11px;
+}
+
+.ticket .products {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.products ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.products ul li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.products ul li strong {
+  display: inline-block;
+  max-width: 200px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.products ul li p {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.products .total {
+  width: 100%;
+  text-align: end;
+  padding-top: 5px;
+  border-top: 1px dashed black;
+  margin-bottom: 10px;
+}
+
+.products .total strong {
+  font-size: 13px;
+}
+
+.ticket .payment_method {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.ticket .payment_method strong {
+  font-size: 12px;
+}
+.ticket .payment_method p {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.end_ticket {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.end_ticket span {
+  display: block;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.container button {
+  width: 100%;
+  max-width: 80mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  color: white;
+  font-weight: 500;
+  background: #0f172a;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: var(--box-shadow);
+}
+
+@media print {
+  .ticket {
+    width: 80mm;
+    font-family: monospace !important;
+  }
+
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+}

@@ -1,0 +1,234 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formGroup label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.submitButton {
+  background: var(--marron);
+  color: white;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+
+/* New styles for summary section */
+.summarySection {
+  width: 100%;
+  max-width: 800px; /* Adjust as needed */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  margin-top: 20px;
+}
+
+.summarySection h2 {
+  margin-bottom: 15px;
+  color: var(--marron);
+}
+
+.summarySection p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.summarySection h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--marron-oscuro);
+}
+
+.alquileresTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.alquileresTable th,
+.alquileresTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.alquileresTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Styles for side-by-side layout */
+.mainContent {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 20px; /* Space between the form and summary */
+  justify-content: center; /* Center items horizontally */
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed for overall width */
+}
+
+.mainContent > div {
+  flex: 1; /* Allow children to grow and shrink */
+  min-width: 300px; /* Minimum width for each section before wrapping */
+}
+
+/* -------------------------------------------------- */
+/* MODAL */
+/* -------------------------------------------------- */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--marron);
+  text-align: center;
+}
+
+/* Inputs dentro del modal */
+.modal input,
+.modal select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Botones */
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modalPrimaryBtn {
+  flex: 1;
+  background: var(--marron);
+  color: white;
+  padding: 12px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modalCancelBtn {
+  flex: 1;
+  background: #ddd;
+  color: #333;
+  padding: 12px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------- */
+/* BOTÓN DE ABRIR MODAL */
+/* -------------------------------------------------- */
+
+.addCourtBtn {
+  background: var(--marron);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.15s ease;
+  width: fit-content;
+}
+
+.addCourtBtn:hover {
+  opacity: 0.9;
+}
+
+/* -------------------------------------------------- */
+/* ANIMACIÓN */
+/* -------------------------------------------------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

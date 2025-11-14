@@ -1,0 +1,104 @@
+/* formulario */
+
+.form {
+  width: 100%;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.form .title_form {
+  font-family: var(--font-agbalumo);
+  color: var(--black);
+  font-weight: 400;
+  font-size: 30px;
+  position: relative;
+  text-align: start;
+  position: relative;
+}
+
+.form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(43, 43, 43);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.form input {
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 14px;
+}
+
+.form button {
+  width: 100%;
+  background: var(--marron);
+  color: white;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 15px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form small {
+  color: red;
+  padding-top: 5px;
+}
+
+.form table {
+  width: 100%;
+  border: 1.5px dashed var(--marron);
+  padding: 15px 10px;
+  padding-bottom: 0px;
+  border-radius: 10px;
+}
+
+.form table input {
+  border-radius: 10px;
+  max-width: 150px;
+  padding: 5px 7px;
+  border: 1px solid var(--marron);
+}
+
+.form table th {
+  text-align: start;
+  color: rgb(43, 43, 43);
+  font-weight: 500;
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.form table td {
+  text-align: start;
+  color: rgb(43, 43, 43);
+  font-weight: 500;
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.form td.ellipsis {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

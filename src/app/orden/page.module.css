@@ -1,0 +1,247 @@
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 70px 0px;
+}
+
+.container h1 {
+  width: 90%;
+  font-family: var(--font-agbalumo);
+  text-align: center;
+  font-size: 45px;
+}
+
+.content {
+  width: 90%;
+  max-width: 1450px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+}
+
+.total {
+  min-width: 300px;
+  padding: 30px 20px 20px 20px;
+  border: 2px solid var(--marron);
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.total h2 {
+  font-family: var(--font-agbalumo);
+  color: var(--black);
+  line-height: 30px;
+  font-size: 25px;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1.5px dashed var(--marron);
+}
+
+.quantity_products,
+.quantity_payment {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.total span {
+  font-size: 14px;
+  font-weight: 400;
+  color: grey;
+}
+
+.total strong {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.total .button {
+  width: 100%;
+  background: var(--black);
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 15px;
+  color: white;
+  font-family: inherit;
+}
+
+.products {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 20px;
+  gap: 20px;
+  border: 2px solid var(--marron);
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.products .product {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px dashed var(--marron);
+  padding-bottom: 20px;
+  gap: 10px;
+}
+
+.products .product:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.product .productInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product .productInfo img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+}
+
+.productInfo .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.productInfo .info h4 {
+  font-family: var(--font-agbalumo);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--black);
+}
+
+.productInfo .info span {
+  font-size: 15px;
+  color: var(--marron);
+}
+
+.productInfo .info p {
+  font-size: 14px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 450px;
+}
+
+.quantity_buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1.5px dashed var(--marron);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.quantity_buttons button {
+  display: flex;
+  align-items: center;
+}
+
+.producto_cantidad {
+  font-size: 14px;
+}
+
+.mercado_pago {
+  margin-top: 10px;
+  width: 100%;
+  height: 48px;
+  padding: 0px 24px;
+  background: #009ee3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--background);
+  font-size: 14px;
+  font-weight: 600;
+  gap: 5px;
+}
+
+.success_message {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 28px;
+  color: var(--marron);
+}
+
+.emptyCart {
+  font-family: var(--font-agbalumo);
+  text-align: center;
+  font-size: 25px;
+  color: var(--marron);
+}
+
+@media (max-width: 1000px) {
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .total {
+    position: static;
+    top: 0;
+    width: 100%;
+  }
+
+  .products {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 100px 0px 30px 0px;
+  }
+  .productInfo .info p {
+    font-size: 14px;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-wrap: wrap;
+  }
+}
+
+@media (max-width: 500px) {
+  .products .product {
+    flex-direction: column;
+  }
+  .quantity_buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

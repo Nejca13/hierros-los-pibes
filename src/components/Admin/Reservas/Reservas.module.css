@@ -1,0 +1,123 @@
+.container {
+  max-width: 1200px;
+  overflow-x: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container .filters {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.container label {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--background);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.container label select {
+  height: 21.5px;
+}
+
+.container table {
+  width: 100%;
+  min-width: 860px;
+  min-height: 500px;
+  border-collapse: collapse;
+  font-family: inherit;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.container table thead {
+  background-color: var(--green);
+  color: white;
+}
+
+.container table tbody {
+  display: block;
+  max-height: 500px;
+  overflow-y: auto;
+  width: 100%;
+  scrollbar-width: thin;
+}
+
+.container table thead,
+.container table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.container table th,
+.container table td {
+  text-align: start;
+  padding: 12px 18px;
+}
+
+.container table td {
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.container table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container table tbody tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.container table tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+.no_reservations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.no_reservations:hover {
+  background-color: white !important;
+}
+
+.no_reservations td {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+@media (max-width: 500px) {
+  .container table {
+    width: 100%;
+    min-width: 860px;
+    min-height: 390px;
+    border-collapse: collapse;
+    font-family: inherit;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .container table tbody {
+    max-height: 390px;
+  }
+  .filters label span {
+    display: none;
+  }
+}

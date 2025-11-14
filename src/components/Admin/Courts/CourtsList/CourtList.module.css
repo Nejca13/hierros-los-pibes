@@ -1,0 +1,132 @@
+.container {
+  width: 100%;
+  background: var(--background);
+  border-radius: 15px;
+  max-width: 700px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.185);
+  position: relative;
+}
+
+.container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.container table thead {
+  background-color: var(--green);
+  color: white;
+}
+
+.container table tbody {
+  display: block;
+  max-height: 500px;
+  overflow-y: auto;
+  width: 100%;
+  scrollbar-width: thin;
+}
+
+.container table thead,
+.container table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.container table th,
+.container table td {
+  text-align: start;
+  padding: 12px 18px;
+}
+
+.container table td {
+  border-bottom: 1px solid #ddd;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+
+.container table th:nth-of-type(3) {
+  text-align: center;
+}
+
+.container table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container table tbody tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.container table tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+.container table tbody td:last-child {
+  text-align: center;
+}
+
+.container table button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  background-color: var(--green);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.container table button:hover {
+  background-color: #45a049;
+}
+
+.container table button:last-child {
+  background-color: #f44336;
+}
+
+.container table button:last-child:hover {
+  background-color: #e31b0c;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  width: 100%;
+  min-height: 500px;
+  height: 500px;
+}
+
+.spinner td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 100% !important;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container table th:nth-of-type(2),
+  .container table td:nth-of-type(2) {
+    display: none;
+  }
+
+  .container table td:nth-of-type(3) {
+    padding: 10px 0px;
+  }
+}

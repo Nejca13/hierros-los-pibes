@@ -1,0 +1,85 @@
+.filter_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px 24px;
+}
+
+.filter_container label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  font-size: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.filter_container label .icon_lupa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+}
+
+.filter_container label i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  z-index: 0;
+}
+
+.filter_container input {
+  font-size: 12px;
+  font-family: inherit;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 1.5px solid var(--marron);
+  color: black;
+  max-height: 41px;
+}
+
+.filter_container select {
+  font-size: 12px;
+  font-family: inherit;
+  padding: 5px 10px;
+  padding-right: 25px;
+  border-radius: 30px;
+  border: 1.5px solid var(--marron);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  z-index: 1;
+  color: black;
+}
+
+.filter_container button {
+  font-size: 13px;
+  font-family: inherit;
+  padding: 5px 10px;
+  border-radius: 30px;
+  text-align: center;
+  background: var(--marron);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter_container input:focus,
+.filter_container select:focus,
+.filter_container button:focus {
+  outline: none;
+  box-shadow: none;
+}

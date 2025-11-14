@@ -1,0 +1,44 @@
+.wrapper {
+  width: 100%;
+  min-height: 109px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: rgb(43, 43, 43);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.wrapper input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  font-family: inherit;
+  background: transparent;
+  border: 1.5px dashed var(--marron);
+  color: black;
+  text-align: start;
+  font-size: 12px;
+}
+
+.wrapper input.readOnly {
+  border: 1px solid rgb(208, 208, 208);
+  color: rgb(116, 116, 116);
+}
+
+.wrapper input.readOnly:focus:read-only {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid rgb(208, 208, 208);
+}
+
+.wrapper .small.readOnly {
+  color: rgb(116, 116, 116);
+  font-weight: 400;
+}
+
+@media (max-width: 1000px) {
+  .wrapper small:nth-of-type(2) {
+    line-height: 15px !important;
+  }
+}

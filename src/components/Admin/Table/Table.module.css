@@ -1,0 +1,102 @@
+.spinnerContainer {
+  border: 1.5px dashed var(--marron);
+  width: 100%;
+  min-height: 368px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--box-shadow);
+}
+
+.spinnerContainer h2 {
+  font-size: 25px;
+  font-family: var(--font-agbalumo);
+  color: var(--marron);
+}
+.container {
+  width: 100%;
+  max-height: 738px;
+  overflow-y: auto;
+  overflow-x: auto;
+  flex-grow: 1;
+  border-radius: 20px;
+  background: white;
+  box-shadow: var(--box-shadow);
+  border: 1.5px solid var(--marron);
+  position: relative;
+}
+
+.spinnerContainer {
+  border: 1.5px dashed var(--marron);
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 18px;
+  text-align: center;
+  border-bottom: 0.5px solid var(--marron);
+  font-size: 14px;
+  color: #333;
+  text-wrap: nowrap;
+  font-family: inherit;
+}
+
+.table th {
+  background-color: var(--marron);
+  color: white;
+  font-weight: 500;
+  border-bottom: none;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.table th:nth-of-type(1),
+.table td:nth-of-type(1) {
+  text-align: left;
+}
+
+.table th:last-of-type,
+.table td:last-of-type {
+  text-align: right;
+}
+
+.table tr:hover {
+  background-color: rgb(255, 249, 242);
+}
+
+.table td {
+  max-width: 240px; /* Ajustá este valor según lo que necesites */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table td.actions {
+  text-align: center;
+}
+
+.table td button {
+  padding: 6px 12px;
+  margin: 0 5px;
+  font-family: inherit;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,25 @@
+const CreditCard = ({
+  width = '24px',
+  height = '24px',
+  color = 'var(--marron)',
+}) => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width={width}
+      height={height}
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke={color}
+      strokeWidth={2}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      className='lucide lucide-credit-card h-4 w-4 mr-2 text-muted-foreground'
+    >
+      <rect width={20} height={14} x={2} y={5} rx={2} />
+      <line x1={2} x2={22} y1={10} y2={10} />
+    </svg>
+  )
+}
+
+export default CreditCard

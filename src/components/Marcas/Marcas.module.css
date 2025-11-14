@@ -1,0 +1,51 @@
+.slider {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.slider h2 {
+  width: 100%;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 23px;
+  text-wrap: balance;
+  color: grey;
+  padding: 20px 0px 10px 0px;
+}
+
+.slider .move {
+  padding: 10px 0px;
+  display: flex;
+  width: calc(300px * 15);
+  animation: animacion 20s linear infinite;
+}
+
+@keyframes animacion {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 7));
+  }
+}
+
+.slider .box {
+  height: 120px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider .box img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+}
